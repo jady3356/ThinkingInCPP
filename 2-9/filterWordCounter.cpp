@@ -16,11 +16,10 @@ int main()
         return 0;
     }
     
-    while(!in.eof())
+    while(in >> word)
     {
-        if(in >> word)
-            if(word == filter)
-                filterCounter++;
+       if(word == filter)
+           filterCounter++;
     }
-    cout << "Filter word is:\"" << filter << "\", " << "Counter is: " << filterCounter << endl;
+    cout << "Filter word is: " << filter << ". Counter is:  " << filterCounter << endl;
 }
