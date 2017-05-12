@@ -4,35 +4,55 @@ using namespace std;
 
 class Hen
 {
-    //void display();
-    string name;
+    string hen;
     public:
+        struct Nest;
+        friend class Nest;
         void display();
+        
         class Nest
         {
-            //void display();
-            string egg;
+            string nest;
+            Hen* h;
+            string n;
             public:
-                void display();
+                class Egg
+                {
+                    string egg;
+                    public:
+                        void display();
+                };
+                void display(Hen* h);
         };
 };
 
 void Hen::display()
 {
-    name = "Hen";
-    cout << "Hen display: " << name << endl;
+    hen = "Hen";
+    cout << "Hen display: " << hen << endl;
 }
 
-void Hen::Nest::display()
+void Hen::Nest::display(Hen* rv)
+{
+    nest = "Nest";
+    h = rv;
+    n = h->hen;
+    //n = "test";
+    cout << "Nest display: " << nest << " and " << n << endl;
+}
+
+void Hen::Nest::Egg::display()
 {
     egg = "Egg";
-    cout << "Nest display: " << egg << endl;
+    cout << "Egg display: " << egg << endl;
 }
 
 int main()
 {
     Hen testHen;
     Hen::Nest testNest;
+    Hen::Nest::Egg testEgg;
     testHen.display();
-    testNest.display();
+    testNest.display(&testHen);
+    testEgg.display();
 }
