@@ -1,0 +1,11 @@
+# first makefile
+CPP = g++
+OFLAG = -o
+.SUFFIXES: .o .cpp #前缀，把所有的cpp格式的文件都变成exe？
+.cpp.o:
+	$(CPP) -c $< #"$<"表示当前第一个依赖文件，只在前缀规则中有效, "$@"表示当前目标名，“$*”表示当前所有的基名，比如hello.o的hello
+#all: \
+	test #不懂这个，貌似对结果没有影响。。。
+test: test.o #格式->"目标"："依赖"" 换行 "command"
+	$(CPP) hello.cpp $(OFLAG) test
+test.o: hello.cpp
