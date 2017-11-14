@@ -1,0 +1,8 @@
+after construction of h: objectCount = 1
+copy constructor: objectCount = 2
+x argument inside f(): objectCount = 2
+copy constructor: objectCount = 3
+~HowMany(): objectCount = 2
+after call to f(): objectCount = 2
+~HowMany(): objectCount = 1
+~HowMany(): objectCount = 0
